@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+
+<robot name="rb1_robot">
+  <!-- Base Link -->
+  <link name="base_footprint">
+    <visual>
+      <geometry>
+        <cylinder length="0.03" radius="0.25"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.03" radius="0.25"/>
+      </geometry>
+    </collision>
+<inertial>
+  <mass value="0.5"/>
+<inertia ixx="0.008" iyy="0.008" izz="0.016" ixy="0.000" ixz="0.000" iyz="0.000"/>
+</inertial>
+
+  </link>
+
+  <!-- Base Link with Wheels -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <cylinder length="0.3" radius="0.25"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.3" radius="0.25"/>
+      </geometry>
+    </collision>
+    <inertial>
+  <mass value="22"/>
+<inertia ixx="0.509" iyy="0.509" izz="0.688" ixy="0.000" ixz="0.000" iyz="0.000"/>
+</inertial>
+
+  </link>
+
+  <!-- Right Wheel -->
+  <link name="right_wheel">
+    <visual>
+    <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.025"/>
+      </geometry>
+    </visual>
+    <collision>
+    <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.025"/>
+      </geometry>
+    </collision>
+   <inertial>
+  <mass value="1"/>
+<inertia ixx="0.000365" iyy="0.000365" izz="0.000313" ixy="0.0" ixz="0.0" iyz="0.0"/>
+</inertial>
+
+  </link>
+
+  <!-- Left Wheel -->
+  <link name="left_wheel">
+    <visual>
+    <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.025"/>
+      </geometry>
+    </visual>
+    <collision>
+    <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.025"/>
+      </geometry>
+    </collision>
+ <inertial>
+  <mass value="1"/>
+<inertia ixx="0.000365" iyy="0.000365" izz="0.000313" ixy="0.0" ixz="0.0" iyz="0.0"/>
+</inertial>
+
+  </link>
+
+  <!-- Front Caster Wheel -->
+  <link name="front_caster">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.0125"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.0125"/>
+      </geometry>
+    </collision>
+  <inertial>
+  <mass value="0.125"/>
+<inertia ixx="0.000031" iyy="0.000031" izz="0.000010" ixy="0.0" ixz="0.0" iyz="0.0"/>
+
+</inertial>
+
+  </link>
+
+  <!-- Back Caster Wheel -->
+  <link name="back_caster">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.0125"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.0125"/>
+      </geometry>
+    </collision>
+<inertial>
+  <mass value="0.125"/>
+<inertia ixx="0.000031" iyy="0.000031" izz="0.000010" ixy="0.0" ixz="0.0" iyz="0.0"/>
+</inertial>
+
+  </link>
+
+  <!-- Front Laser -->
+  <link name="front_laser">
+    <visual>
+    <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.005"/>
+      </geometry>
+    </visual>
+    <collision>
+    <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.025"/>
+      </geometry>
+    </collision>
+   <inertial>
+  <mass value="0.25"/>
+<inertia ixx="0.000091" iyy="0.000091" izz="0.000078" ixy="0.0" ixz="0.0" iyz="0.0"/>
+</inertial>
+
+  </link>
+
+  <!-- Joints -->
+  <!-- Base Footprint to Base Link -->
+  <joint name="base_footprint_to_base_link" type="fixed">
+    <origin xyz="0 0 -0.15" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="base_footprint"/>
+  </joint>
+
+  <!-- Base Link to Right Wheel -->
+  <joint name="base_link_to_right_wheel" type="continuous">
+    <origin xyz="0.0 -0.2 -0.15" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="right_wheel"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <!-- Base Link to Left Wheel -->
+  <joint name="base_link_to_left_wheel" type="continuous">
+    <origin xyz="0.0 0.2 -0.15" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="left_wheel"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <!-- Base Link to Front Caster -->
+  <joint name="base_link_to_front_caster" type="fixed">
+    <origin xyz="0.1 0 -0.15" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="front_caster"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <!-- Base Link to Back Caster -->
+  <joint name="base_link_to_back_caster" type="fixed">
+    <origin xyz="-0.1 0.0 -0.15" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="back_caster"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <!-- Base Link to Front Laser -->
+  <joint name="base_link_to_front_laser" type="fixed">
+      
+    <origin xyz="0.25 0.0 0.075" rpy=" 3.14159265359 0 0"/>
+    <parent link="base_link"/>
+    <child link="front_laser"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+</robot>
