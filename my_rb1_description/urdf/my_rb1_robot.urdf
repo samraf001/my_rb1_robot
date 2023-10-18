@@ -195,5 +195,32 @@
     <child link="front_laser"/>
     <axis xyz="0 0 1"/>
   </joint>
+  <!-- Gazebo Plugins -->
+
+<!-- Differential Drive Plugin -->
+<gazebo>
+  <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+    <rosDebugLevel>Debug</rosDebugLevel>
+    <alwaysOn>true</alwaysOn>
+    <updateRate>20</updateRate>
+    <leftJoint>base_link_to_left_wheel</leftJoint>
+    <rightJoint>base_link_to_right_wheel</rightJoint>
+    <wheelSeparation>0.4</wheelSeparation> <!-- Adjust this value according to your robot's design -->
+    <wheelDiameter>0.05</wheelDiameter>
+    <commandTopic>/cmd_vel</commandTopic>
+    <odometryTopic>/odom</odometryTopic>
+    <odometryFrame>odom</odometryFrame>
+    <robotBaseFrame>base_link</robotBaseFrame>
+  </plugin>
+</gazebo>
+
+<!-- Laser Plugin -->
+<gazebo reference="front_laser">
+  <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+    <topicName>/scan</topicName>
+    <frameName>front_laser</frameName>
+  </plugin>
+</gazebo>
+
 
 </robot>
