@@ -94,6 +94,12 @@
       <geometry>
         <cylinder length="0.05" radius="0.0125"/>
       </geometry>
+      <friction>
+      <ode>
+        <mu>0.0</mu> <!-- Static friction coefficient -->
+        <mu2>0.0</mu2> <!-- Dynamic friction coefficient -->
+      </ode>
+    </friction>
     </collision>
   <inertial>
   <mass value="0.125"/>
@@ -116,6 +122,12 @@
       <geometry>
         <cylinder length="0.05" radius="0.0125"/>
       </geometry>
+      <friction>
+      <ode>
+        <mu>0.0</mu> <!-- Static friction coefficient -->
+        <mu2>0.0</mu2> <!-- Dynamic friction coefficient -->
+      </ode>
+    </friction>
     </collision>
 <inertial>
   <mass value="0.125"/>
