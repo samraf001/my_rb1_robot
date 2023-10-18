@@ -1,7 +1,11 @@
 <?xml version="1.0"?>
 
-
 <robot name="rb1_robot">
+
+<!-- Properties for the material -->
+<material name="black">
+    <color rgba="0 0 0 1"/>
+</material>
   <!-- Base Link -->
   <link name="base_footprint">
     <visual>
@@ -27,6 +31,7 @@
       <geometry>
         <cylinder length="0.3" radius="0.25"/>
       </geometry>
+            <material name="black"/>
     </visual>
     <collision>
       <geometry>
