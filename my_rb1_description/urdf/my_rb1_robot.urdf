@@ -12,6 +12,7 @@
       <geometry>
         <cylinder length="0.03" radius="0.25"/>
       </geometry>
+        <material name="black"/>
     </visual>
     <collision>
       <geometry>
