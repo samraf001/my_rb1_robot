@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 
+
 <robot name="rb1_robot">
   <!-- Base Link -->
   <link name="base_footprint">
@@ -52,6 +53,12 @@
       <geometry>
         <cylinder length="0.05" radius="0.025"/>
       </geometry>
+      <friction>
+      <ode>
+        <mu>0.0</mu> <!-- Static friction coefficient -->
+        <mu2>0.0</mu2> <!-- Dynamic friction coefficient -->
+      </ode>
+    </friction>
     </collision>
    <inertial>
   <mass value="1"/>
@@ -73,6 +80,12 @@
       <geometry>
         <cylinder length="0.05" radius="0.025"/>
       </geometry>
+      <friction>
+      <ode>
+        <mu>0.0</mu> <!-- Static friction coefficient -->
+        <mu2>0.0</mu2> <!-- Dynamic friction coefficient -->
+      </ode>
+    </friction>
     </collision>
  <inertial>
   <mass value="1"/>
