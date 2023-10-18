@@ -3,12 +3,18 @@
 <gazebo reference="base_link">
     <material>Gazebo/Black</material>
 </gazebo>
+
+<!-- Properties for the material -->
+<material name="black">
+    <color rgba="0 0 0 1"/>
+</material>
   <!-- Base Link -->
   <link name="base_footprint">
     <visual>
       <geometry>
         <cylinder length="0.03" radius="0.25"/>
       </geometry>
+        <material name="black"/>
     </visual>
     <collision>
       <geometry>
@@ -28,6 +34,7 @@
       <geometry>
         <cylinder length="0.3" radius="0.25"/>
       </geometry>
+            <material name="black"/>
     </visual>
     <collision>
       <geometry>
@@ -54,6 +61,12 @@
       <geometry>
         <cylinder length="0.05" radius="0.025"/>
       </geometry>
+      <friction>
+      <ode>
+        <mu>0.0</mu> <!-- Static friction coefficient -->
+        <mu2>0.0</mu2> <!-- Dynamic friction coefficient -->
+      </ode>
+    </friction>
     </collision>
    <inertial>
   <mass value="1"/>
@@ -75,6 +88,12 @@
       <geometry>
         <cylinder length="0.05" radius="0.025"/>
       </geometry>
+      <friction>
+      <ode>
+        <mu>0.0</mu> <!-- Static friction coefficient -->
+        <mu2>0.0</mu2> <!-- Dynamic friction coefficient -->
+      </ode>
+    </friction>
     </collision>
  <inertial>
   <mass value="1"/>
@@ -86,15 +105,15 @@
   <!-- Front Caster Wheel -->
   <link name="front_caster">
     <visual>
-      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="0.05" radius="0.0125"/>
+              <sphere radius="0.025"/> 
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder length="0.05" radius="0.0125"/>
+        <sphere radius="0.025"/> 
       </geometry>
       <friction>
       <ode>
@@ -116,13 +135,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="1.5708 0 0"/>
       <geometry>
-        <cylinder length="0.05" radius="0.0125"/>
+        <sphere radius="0.025"/> 
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="1.5708 0 0"/>
       <geometry>
-        <cylinder length="0.05" radius="0.0125"/>
+        <sphere radius="0.025"/> 
       </geometry>
       <friction>
       <ode>
