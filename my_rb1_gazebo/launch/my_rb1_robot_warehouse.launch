@@ -20,7 +20,7 @@
     <param name="robot_description" textfile="$(arg robot_description)"/>
 
     <!-- Spawn the robot model in Gazebo -->
-    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model my_robot"/>
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model my_robot -x -0.3 -y -1.3 -z 0.17 -R 0 -P 0 -Y 0"/>
 
     <!-- Start joint_state_publisher -->
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
